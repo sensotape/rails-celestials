@@ -2,6 +2,8 @@ class Celestial < ApplicationRecord
 
   CATEGORIES = %w[nebula star planet black\ hole asteroid moon]
 
+  mount_uploader :photo, PhotoUploader
+
   belongs_to :user
   has_many :interests
 
