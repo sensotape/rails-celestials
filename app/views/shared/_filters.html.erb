@@ -17,9 +17,11 @@
 
     <!-- modal content-->
     <div class="modal-content">
-      <%= form_tag({}, {method: :get}) do %>
+      <%= form_tag({}, {method: :get, enforce_utf8: browser.ie?}) do %>
         <% Celestial::CATEGORIES.each do |category| %>
-          <%= check_box_tag(category) %>
+          <%= check_box_tag 'category', category %>
+          <%= category %>
+          <br>
         <% end %>
         <%= submit_tag("filter", name: nil) %>
       <% end %>

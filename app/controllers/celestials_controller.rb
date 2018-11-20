@@ -1,20 +1,17 @@
 class CelestialsController < ApplicationController
   def index
-    @celestials = Celestial.all
-    # filtering_params(params).each do |key, value|
-    #   @celestials = @celestials.public_send(key, value) if value.present?
-    # end
     @celestial = Celestial.new
+    if params[:category]
+      @celestials = Celestial.where(category: params[:category])
+    else
+      @celestials = Celestial.all
+    end
   end
 
   private
 
   def celestial_params
-    params.require(:celestial).permit(:category) if params['celestial']
-  end
-
-  def filtering_params(params)
-    params.slice(:category)
+    params.require(:celestial).permit(:category)
   end
 
 end
