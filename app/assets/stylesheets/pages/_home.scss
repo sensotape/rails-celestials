@@ -1,1 +1,40 @@
 // Specific CSS for your home-page
+body {
+  background-color: black;
+  height: 100%;
+}
+
+.banner-container {
+  background-image: url('https://res.cloudinary.com/sensotape/image/upload/v1542727818/oev0dd6vtvcra1wqzhiu.jpg');
+  background-repeat: no-repeat;
+  background-position: left top;
+  height: 100vh;
+  color: white;
+  padding-top: 70px;
+}
+
+.banner-content {
+  margin: 12em auto;
+  h1 {
+    margin-bottom: 15px;
+  }
+  a {
+    margin-top: 10px;
+  }
+}
+
+.browse-container {
+  background-color: black;
+  background-size: cover;
+  height: 100vh;
+  color: white;
+  padding-top: 30px;
+}
+
+.company-container {
+  padding-top: 30px;
+  background-image: url('http://res.cloudinary.com/sensotape/image/upload/v1542728111/pbruahuarvg9wibltl0t.jpg');
+  background-size: cover;
+  height: 100vh;
+  color: white;
+}
