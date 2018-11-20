@@ -10,5 +10,6 @@ class Celestial < ApplicationRecord
   validates :name, presence: true, length: { in: 1..50 }
   validates :price, presence: true, numericality: true
   validates :category, presence: true, inclusion: { in: CATEGORIES }
-  validates :location, presence: true, length: { in: 8..120 }
+  validates :location, presence: true, length: { in: 8..120,
+              too_short: "At least 8 characters"  }
 end

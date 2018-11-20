@@ -1,0 +1,25 @@
+<%= simple_form_for celestial do |f| -%>
+<div>
+  <%= f.label :name %>
+  <%=  f.text_field :name%>
+</div>
+
+<div>
+  <%= f.label :price%>
+  <%= f.number_field :price %>
+</div>
+
+<div>
+ <%= f.input :category, priority: [], collection: ['nebula', 'star', 'planet', 'black hole', 'asteroid', 'moon'] %>
+</div>
+
+<div>
+  <%= f.label :location%>
+  <%= f.text_field :location %>
+</div>
+
+<div>
+   <%= f.submit %>
+</div>
+
+<% end -%>

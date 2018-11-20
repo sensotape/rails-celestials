@@ -5,9 +5,10 @@ class CelestialsController < ApplicationController
 
   def create
     @celestial = Celestial.new(celestial_params)
+    puts @celestial.errors.full_messages
     @celestial.user = current_user
     if @celestial.save
-      redirect_to user_path
+      redirect_to root_path
     else
       render 'new'
     end
@@ -20,7 +21,7 @@ class CelestialsController < ApplicationController
   def update
     @celestial = Celestial.find(params[:id])
     if @celestial.update(celestial_params)
-      redirect_to user_path
+      redirect_to root_path
     else
       render 'edit'
     end
