@@ -1,0 +1,77 @@
+<!-- filters -->
+<div class="filter-container">
+  <button class='filter-box <%= "active" if @categories %>' data-toggle="modal" data-target="#category">
+    Category
+  </button>
+  <button class='filter-box <%= "active" if @min_max %>' data-toggle="modal" data-target="#price">
+    Price
+  </button>
+</div>
+
+
+<!-- category modal -->
+<div class='modal fade' id="category" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- category content-->
+    <div class="modal-content">
+      <%= form_tag({}, {method: :get, enforce_utf8: browser.ie?}) do %>
+        <% Celestial::CATEGORIES.each do |category| %>
+          <%= check_box_tag 'category[]', category, checked = @categories && @categories.include?(category)%>
+          <%= category %>
+          <br>
+        <% end %>
+        <!-- sneak in previously filtered min and max values -->
+        <% unless @min_max.nil? %>
+          <%= hidden_field_tag 'min', @min_max.first %>
+          <%= hidden_field_tag 'max', @min_max.last %>
+        <% end %>
+        <%= submit_tag("filter", name: nil) %>
+      <% end %>
+
+      <!-- button to clear the filter -->
+      <%= form_tag({}, {method: :get, enforce_utf8: browser.ie?}) do %>
+        <% unless @min_max.nil? %>
+          <%= hidden_field_tag 'min', @min_max.first %>
+          <%= hidden_field_tag 'max', @min_max.last %>
+        <% end %>
+        <%= submit_tag("clear", name: nil) %>
+      <% end %>
+
+    </div>
+
+  </div>
+</div>
+
+
+<!-- price modal -->
+<div class="modal fade" id="price" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- price content-->
+    <div class="modal-content">
+      <p class="text-center">The average celestial price is €<%= @ave_price.round  %> </p>
+      <%= form_tag({}, {method: :get, enforce_utf8: browser.ie?}) do %>
+        <%= render 'shared/slider' %>
+        <!-- sneak in previously filtered categories -->
+        <% if @categories %>
+          <% @categories.each do |category| %>
+            <%= hidden_field_tag 'category[]', category %>
+          <% end %>
+        <% end %>
+        <%= submit_tag("go", name: nil) %>
+      <% end %>
+
+      <!-- button to clear the filter -->
+      <%= form_tag({}, {method: :get, enforce_utf8: browser.ie?}) do %>
+        <% if @categories %>
+          <% @categories.each do |category| %>
+            <%= hidden_field_tag 'category[]', category %>
+          <% end %>
+        <% end %>
+        <%= submit_tag("clear", name: nil) %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
