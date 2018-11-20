@@ -4,11 +4,14 @@
 <%= render 'shared/filters' %>
 
 <!-- CELESTIALS -->
-
-</div>
+<br>
 <% @celestials.each do |celestial| %>
 <br>
 <p>€<%= celestial.price %>: <strong><%= celestial.name %></strong> (category: <%= celestial.category %>)</p>
 <% end %>
+
+<%= render 'shared/card' %>
+
+</div>
 <!-- /.container -->
 
