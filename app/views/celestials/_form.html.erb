@@ -1,28 +1,16 @@
 <%= simple_form_for celestial do |f| -%>
-<div>
-  <%=  f.input :name, error: 'Must have less than 50 characters'%>
-</div>
 
-<div>
+  <%= f.input :name, error: 'Must have less than 50 characters' %>
+
   <%= f.input :price %>
-</div>
 
-<div>
- <%= f.input :category, priority: [], collection: Celestial::CATEGORIES %>
-</div>
+  <%= f.input :location, error: 'Must contain at least 8 characters' %>
 
-<div>
+  <%= f.input :category, priority: [], collection: Celestial::CATEGORIES %>
+
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
-</div>
 
-<div>
-  <%= f.input :location, error: 'Must contain at least 8 characters' %>
-</div>
+  <%= f.submit %>
 
-
-<div>
-   <%= f.submit %>
-</div>
-
-<% end -%>
+<% end %>
