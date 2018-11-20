@@ -1,7 +1,7 @@
 <div class="container">
   <h1><%= @user.first_name %></h1>
   <h2><%= @user.last_name %></h2>
-  <div><%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill %></div>
+  <div><%= cl_image_tag @user.avatar height: 300, width: 400, crop: :fill %></div>
   <p><%= @user.bio %></p>
       <%= f.input :bio %>
     <%= f.input :photo %>
