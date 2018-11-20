@@ -51,6 +51,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
+  protected
+
+  def after_sign_up_path_for(resource)
+    user_path(current_user) # Or :prefix_to_your_route
+  end
   # def after_sign_up_path_for(resource)
   #   super(resource)
   # end
