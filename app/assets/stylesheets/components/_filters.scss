@@ -1,0 +1,15 @@
+.filter-container {
+  width: 60%;
+  display: flex;
+  align-content: center;
+}
+
+.filter-box {
+  width: auto;
+  text-align: center;
+  padding-right: 15px;
+  &.active {
+    background: black;
+    color: white;
+  }
+}
