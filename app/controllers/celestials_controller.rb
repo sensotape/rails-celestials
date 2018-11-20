@@ -5,7 +5,6 @@ class CelestialsController < ApplicationController
 
   def create
     @celestial = Celestial.new(celestial_params)
-    puts @celestial.errors.full_messages
     @celestial.user = current_user
     if @celestial.save
       redirect_to root_path
