@@ -5,7 +5,7 @@ class CelestialsController < ApplicationController
     retreive_celestials
     calculate_min_max_ave if @celestials
   end
-  
+
   def new
     @celestial = Celestial.new
   end
@@ -37,6 +37,7 @@ class CelestialsController < ApplicationController
 
   def celestial_params
     params.require(:celestial).permit(:photo, :name, :price, :category, :location)
+  end
 
   def save_filters
     @categories = params[:category]
