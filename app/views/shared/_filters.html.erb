@@ -1,12 +1,34 @@
+<!-- filters -->
 <div class="filter-container">
-  <div class="filter-box">
+  <button class="filter-box" data-toggle="modal" data-target="#category">
     Category
-  </div>
-  <div class="filter-box">
+  </button>
+  <button class="filter-box" data-toggle="modal" data-target="#price">
+    Price
+  </button>
+  <button class="filter-box" data-toggle="modal" data-target="#location">
+    Location
+  </button>
+</div>
 
-  </div>
-  <div class="filter-box">
+<!-- modal -->
+<div class="modal fade" id="category" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- modal content-->
+    <div class="modal-content">
+      <%= form_tag({}, {method: :get}) do %>
+        <% Celestial::CATEGORIES.each do |category| %>
+          <%= check_box_tag(category) %>
+        <% end %>
+        <%= submit_tag("filter", name: nil) %>
+      <% end %>
+
+
+    </div>
 
   </div>
 </div>
-<!-- /.filter-container -->
+
+
+
