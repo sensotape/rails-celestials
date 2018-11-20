@@ -5,13 +5,13 @@
 
 <!-- CELESTIALS -->
 <br>
+<div class="row">
 <% @celestials.each do |celestial| %>
-<br>
-<p>€<%= celestial.price %>: <strong><%= celestial.name %></strong> (category: <%= celestial.category %>)</p>
+  <div class="col-md-4" style="margin-bottom: 20px">
+    <%= render 'shared/card', celestial: celestial %>
+  </div>
 <% end %>
-
-<%= render 'shared/card' %>
-
+</div>
 </div>
 <!-- /.container -->
 
