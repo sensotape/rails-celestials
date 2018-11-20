@@ -53,6 +53,7 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    browser (2.5.3)
     builder (3.2.3)
     byebug (10.0.2)
     carrierwave (1.2.3)
@@ -126,6 +127,8 @@ GEM
     pry-rails (0.3.7)
       pry (>= 0.10.4)
     puma (3.12.0)
+    pundit (2.0.0)
+      activesupport (>= 3.0.0)
     rack (2.0.6)
     rack-proxy (0.6.5)
       rack
@@ -228,6 +231,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap
   bootstrap-sass (~> 3.3)
+  browser
   carrierwave (~> 1.2)
   cloudinary (~> 1.9.1)
   devise
@@ -239,6 +243,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma
+  pundit
   rails (= 5.2.1)
   redis
   sassc-rails
@@ -253,4 +258,4 @@ RUBY VERSION
    ruby 2.4.5p335
 
 BUNDLED WITH
-   1.16.6
+   1.17.1
