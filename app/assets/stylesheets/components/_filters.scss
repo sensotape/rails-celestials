@@ -8,4 +8,8 @@
   width: auto;
   text-align: center;
   padding-right: 15px;
+  &.active {
+    background: black;
+    color: white;
+  }
 }

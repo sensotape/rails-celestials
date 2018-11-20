@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_19_155034) do
+ActiveRecord::Schema.define(version: 2018_11_20_133507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "celestials", force: :cascade do |t|
-    t.float "price", null: false
+    t.integer "price", null: false
     t.bigint "user_id"
     t.string "category", null: false
     t.string "location", null: false
