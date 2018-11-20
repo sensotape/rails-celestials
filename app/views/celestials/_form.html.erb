@@ -1,21 +1,23 @@
 <%= simple_form_for celestial do |f| -%>
 <div>
-  <%= f.label :name %>
-  <%=  f.text_field :name%>
+  <%=  f.input :name, error: 'Must have less than 50 characters'%>
 </div>
 
 <div>
-  <%= f.label :price%>
-  <%= f.number_field :price %>
+  <%= f.input :price %>
 </div>
 
 <div>
- <%= f.input :category, priority: [], collection: ['nebula', 'star', 'planet', 'black hole', 'asteroid', 'moon'] %>
+ <%= f.input :category, priority: [], collection: Celestial::CATEGORIES %>
 </div>
 
 <div>
-  <%= f.label :location%>
-  <%= f.text_field :location %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+</div>
+
+<div>
+  <%= f.input :location, error: 'Must contain at least 8 characters' %>
 </div>
 
 <div>
