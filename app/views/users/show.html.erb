@@ -1,9 +1,16 @@
 <div class="container">
-  <h1>Welcome <%= @user.first_name %></h1>
-  <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-  <h3><%= "Embedded Avatar Photo, OR Add Photo" %></h3>
-  <h3><%= "Embedded celestials, AND Add Celestial" %></h3>
+  <h1>Welcome <%= current_user.first_name %> <%= cl_image_tag current_user.avatar, height: 300, width: 400, crop: :fill %> </h1>
+  <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+  <div><h3><%= "Celestials" %></h3></div>
+
+  <% current_user.celestials.each do |celestial| %>
+  <br>
+  <p>€<%= celestial.price %>: <strong><%= celestial.name %></strong> (category: <%= celestial.category %>)</p>
+  <% end %>
+  <%= link_to "See My Celestials", celestials_path(current_user) %>
+   <%= link_to "Add a Celestial", new_celestial_path(current_user) %>
   <h3><%= "Message notifications" %></h3>
-  <h3><%= "Embedded Bio, OR Add Bio" %></h3>
+  <h2>About Me</h2>
+  <h3><%= current_user.bio %></h3>
   <%= link_to "Edit My Profile", edit_user_path(current_user) %>
 </div>

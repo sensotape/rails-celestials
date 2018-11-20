@@ -14,7 +14,7 @@ class CelestialsController < ApplicationController
     @celestial = Celestial.new(celestial_params)
     @celestial.user = current_user
     if @celestial.save
-      redirect_to root_path
+      redirect_to user_path
     else
       render 'new'
     end
