@@ -7,10 +7,6 @@ class ApplicationController < ActionController::Base
     current_user
   end
 
-  def after_sign_out_path_for(resource_or_scope)
-    URI.parse(request.referer).path if request.referer
-  end
-
   protected
 
   def configure_permitted_parameters
