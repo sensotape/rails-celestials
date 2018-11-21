@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = current_user.messages.new(message_params)
+    @message = current_user.messages.new(permitted_attributes(Message)
     if @message.save
 
     else
