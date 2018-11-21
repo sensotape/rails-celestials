@@ -1,0 +1,11 @@
+en:
+  pundit:
+    default: 'You are not authorized to perform this action.'
+    celestial_policy:
+      edit?: 'You are not authorized to edit this celestial!'
+      new?: 'You are not authorized to create new celestials!'
+      destroy?: 'You are not authorized to delete this celestial!'
+    user_policy:
+      show?: 'You are not authorized to see this profile!'
+      update?: 'You are not authorized to edit this profile!'
+      destroy?: 'You are not authorized to delete this profile!'

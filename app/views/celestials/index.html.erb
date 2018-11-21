@@ -1,14 +1,14 @@
 <div class="container">
-<!-- FILTERS -->
-<br>
-<%= render 'shared/filters' %>
+  <br>
 
-<!-- CELESTIALS -->
+  <!-- FILTERS -->
+  <%= render 'shared/filters' %>
 
+  <!-- CELESTIALS -->
+  <% @celestials.each do |celestial| %>
+  <br>
+  <p>€<%= celestial.price %>: <strong><%= celestial.name %></strong> (category: <%= celestial.category %>)</p>
+  <% end %>
 </div>
-<% @celestials.each do |celestial| %>
-<br>
-<p>€<%= celestial.price %>: <strong><%= celestial.name %></strong> (category: <%= celestial.category %>)</p>
-<% end %>
 <!-- /.container -->
 

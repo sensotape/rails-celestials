@@ -1,4 +1,6 @@
 class CelestialsController < ApplicationController
+  before_action :set_celestial, only: [:show, :edit, :update, :destroy]
+
   def index
     @celestial = Celestial.new
     save_filters
@@ -6,34 +8,45 @@ class CelestialsController < ApplicationController
     calculate_min_max_ave if @celestials
   end
 
+  def show
+
+  end
+
   def new
-    @celestial = Celestial.new
+    @celestial = current_user.celestials.new
+    authorize @celestial
   end
 
   def create
-    @celestial = Celestial.new(celestial_params)
-    @celestial.user = current_user
+    @celestial = current_user.celestials.new(permitted_attributes(Celestial))
+    authorize @celestial
     if @celestial.save
-      redirect_to root_path
+      redirect_to celestials_path
     else
       render 'new'
     end
   end
 
-  def edit
-    @celestial = Celestial.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @celestial = Celestial.find(params[:id])
-    if @celestial.update(celestial_params)
+    if @celestial.update_attributes(permitted_attributes(@celestial))
       redirect_to root_path
     else
       render 'edit'
     end
   end
 
+  def destroy
+
+  end
+
   private
+
+  def set_celestial
+    @celestial = Celestial.find(params[:id])
+    authorize @celestial
+  end
 
   def celestial_params
     params.require(:celestial).permit(:photo, :name, :price, :category, :location)
@@ -45,14 +58,14 @@ class CelestialsController < ApplicationController
   end
 
   def retreive_celestials
-    @celestials = Celestial.all
+    @celestials = policy_scope(Celestial)
     @celestials.where!(category: params[:category]) if params[:category]
     @celestials.where!(price: params[:min]..params[:max]) if params[:min] && params[:max]
   end
 
   def calculate_min_max_ave
     all_prices = []
-    Celestial.all.each do |celestial|
+    policy_scope(Celestial).each do |celestial|
       all_prices << celestial.price
     end
     min_and_max = all_prices.minmax
