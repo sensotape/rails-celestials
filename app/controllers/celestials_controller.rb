@@ -8,7 +8,9 @@ class CelestialsController < ApplicationController
     calculate_min_max_ave if @celestials
   end
 
-  def show; end
+  def show
+    @message = Message.new
+  end
 
   def new
     @celestial = current_user.celestials.new
