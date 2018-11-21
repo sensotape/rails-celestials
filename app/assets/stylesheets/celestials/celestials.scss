@@ -1,1 +1,29 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: 1fr;
+  color: white;
+}
 
+.celestial-photo {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 1;
+}
+
+.celestial-desciption {
+  grid-row: 1 / span 1;
+  grid-column: 2 / span 1;
+  a {
+    font-size: 26px;
+  }
+}
+
+.celestial-desciption .content {
+  opacity: 0.8;
+  padding-left: 20px;
+  margin: 15px auto;
+}
+
+.interest-modal {
+  color: black;
+}
