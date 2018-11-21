@@ -1,16 +1,64 @@
-<div class="container">
-  <h1>Welcome <%= current_user.first_name %> <%= cl_image_tag current_user.avatar, height: 300, width: 400, crop: :fill %> </h1>
-  <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
-  <div><h3><%= "Celestials" %></h3></div>
+<div class='container'>
+  <div class="welcome">
+    <p>My Messages (3 New, 2 Unread)</p>
+    <h1>Welcome <%= current_user.first_name %><%= cl_image_tag current_user.avatar, height: 200, width: 200, crop: :fill, gravity: :face,
+    radius: :max, effect: :trim%> </h1>
+  </div>
+</div>
 
+<div class="tab">
+  <button class="tablinks" onclick="openPage(event, 'Interests')">My Interests <%= "(4 Approved, 2 Pending)" %></button>
+  <button class="tablinks" onclick="openPage(event, 'Celestials')">My Celestials <%= "(5 People Interested)" %></button>
+  <button class="tablinks" onclick="openPage(event, 'Profile')">My Profile</button>
+</div>
+
+<div id="Interests" class="tabcontent">
+  <h3>My Interests</h3>
+  <p>These are the Celestials I am interested in. They are current_user.interests</p>
+  <button class="btn btn-primary">See Details</button>
+</div>
+
+<div id="Celestials" class="tabcontent">
+  <h3>My Celestials</h3>
   <% current_user.celestials.each do |celestial| %>
-  <br>
-  <p>€<%= celestial.price %>: <strong><%= celestial.name %></strong> (category: <%= celestial.category %>)</p>
+    <p><strong><%= celestial.name %></strong> (category: <%= celestial.category %>)</p>
+    <p>€<%= celestial.price %></p>
   <% end %>
-  <%= link_to "See My Celestials", celestials_path(current_user) %>
-   <%= link_to "Add a Celestial", new_celestial_path(current_user) %>
-  <h3><%= "Message notifications" %></h3>
+  <button class="btn btn-primary"><%= link_to "Add a Celestial", new_celestial_path(current_user) %></button>
+</div>
+
+<div id="Profile" class="tabcontent">
+  <h3>My Profile</h3>
+  <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
   <h2>About Me</h2>
   <h3><%= current_user.bio %></h3>
-  <%= link_to "Edit My Profile", edit_user_path(current_user) %>
+  <button class="btn btn-primary"><%= link_to "Edit My Profile", edit_user_path(current_user) %></button>
 </div>
+
+<script>
+
+function openPage(evt, headingName) {
+
+    // Declare all variables
+    var i, tabcontent, tablinks;
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the link that opened the tab
+    document.getElementById(headingName).style.display = "block";
+    event.currentTarget.className += " active";
+}
+
+
+document.getElementById("defaultOpen").click();
+</script>
+
