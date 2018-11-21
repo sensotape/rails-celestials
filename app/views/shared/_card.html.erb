@@ -9,7 +9,7 @@
   </div>
   <div class="card__body">
     <div class="black-bar">
-      <h3 class="card__name"><%= celestial.name %></h3>
+      <h3 class="card__name"><%= link_to celestial.name, celestial_path(celestial) %></h3>
       <p class="card__job"><%= celestial.category %></p>
     </div>
     <p class="card__bio"> A really, really cool celestial body.</p>
