@@ -1,15 +1,43 @@
 .filter-container {
-  width: 60%;
+  width: 100%;
   display: flex;
   align-content: center;
+  margin: 20px 35px;
+}
+
+.modal-padding {
+  padding: 20px;
+}
+
+.modal-background {
+  color: white;
+  background: black;
 }
 
 .filter-box {
   width: auto;
+  border-radius: 12px;
+  border: solid #c2a061 1px;
   text-align: center;
-  padding-right: 15px;
+  padding: 5px 10px;
+  margin: 0 20px;
+  color: #c2a061;
+  background: black;
+  transition: all ease 0.5s;
+
   &.active {
-    background: black;
+    background: #c2a061;
     color: white;
+    border: solid #c2a061 1px;
   }
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.button-container {
+  margin: 25px 0;
+  display: flex;
+  // padding: 20px;
+  justify-content: space-between;
 }
