@@ -1,0 +1,22 @@
+<div class="card feature" data-effect="zoom" data-card='<%= index %>'>
+  <button class="card__save  js-save" type="button">
+    <i class="fa  fa-bookmark"></i>
+   </button>
+  <figure  class="card__image">
+    <%= cl_image_tag celestial.photo, alt: celestial.name, class: 'feature' %>
+  </figure>
+  <div class="card__header">
+    <figure class="card__profile">
+
+    </figure>
+  </div>
+  <div class="card__body">
+    <h3 class="card__name"><%= celestial.name %></h3>
+    <p class="card__job"><%= celestial.category %></p>
+    <p class="card__bio"> A really, really cool celestial body.</p>
+  </div>
+  <div class="card__footer">
+    <p class="card__date">Feb 10 2018</p>
+    <p class=""></p>
+  </div>
+</div>

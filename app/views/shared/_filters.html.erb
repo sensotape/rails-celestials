@@ -14,7 +14,8 @@
   <div class="modal-dialog">
 
     <!-- category content-->
-    <div class="modal-content">
+    <div class="modal-content modal-padding modal-background">
+      <p class="text-center">What kind of celestial are you interested in?</p>
       <%= form_tag({}, {method: :get, enforce_utf8: browser.ie?}) do %>
         <% Celestial::CATEGORIES.each do |category| %>
           <%= check_box_tag 'category[]', category, checked = @categories && @categories.include?(category)%>
@@ -26,7 +27,8 @@
           <%= hidden_field_tag 'min', @min_max.first %>
           <%= hidden_field_tag 'max', @min_max.last %>
         <% end %>
-        <%= submit_tag("filter", name: nil) %>
+        <div class="button-container">
+        <%= submit_tag("filter", name: nil, class: 'btn btn-primary') %>
       <% end %>
 
       <!-- button to clear the filter -->
@@ -35,8 +37,9 @@
           <%= hidden_field_tag 'min', @min_max.first %>
           <%= hidden_field_tag 'max', @min_max.last %>
         <% end %>
-        <%= submit_tag("clear", name: nil) %>
+        <%= submit_tag("clear", name: nil, class: 'btn btn-primary') %>
       <% end %>
+      </div>
 
     </div>
 
@@ -49,7 +52,7 @@
   <div class="modal-dialog">
 
     <!-- price content-->
-    <div class="modal-content">
+    <div class="modal-content modal-padding modal-background">
       <p class="text-center">The average celestial price is €<%= @ave_price.round  %> </p>
       <%= form_tag({}, {method: :get, enforce_utf8: browser.ie?}) do %>
         <%= render 'shared/slider' %>
@@ -59,7 +62,9 @@
             <%= hidden_field_tag 'category[]', category %>
           <% end %>
         <% end %>
-        <%= submit_tag("go", name: nil) %>
+
+        <div class="button-container">
+        <%= submit_tag("filter", name: nil, class: 'btn btn-primary') %>
       <% end %>
 
       <!-- button to clear the filter -->
@@ -69,8 +74,11 @@
             <%= hidden_field_tag 'category[]', category %>
           <% end %>
         <% end %>
-        <%= submit_tag("clear", name: nil) %>
+        <%= submit_tag("clear", name: nil, class: 'btn btn-primary') %>
       <% end %>
+
+      </div>
+
     </div>
 
   </div>

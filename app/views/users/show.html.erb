@@ -1,9 +1,66 @@
-<div class="container">
-  <h1>Welcome <%= @user.first_name %></h1>
-  <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-  <h3><%= "Embedded Avatar Photo, OR Add Photo" %></h3>
-  <h3><%= "Embedded celestials, AND Add Celestial" %></h3>
-  <h3><%= "Message notifications" %></h3>
-  <h3><%= "Embedded Bio, OR Add Bio" %></h3>
-  <%= link_to "Edit My Profile", edit_user_path(current_user) %>
+<div class='container'>
+  <div class="welcome">
+    <p>My Messages (3 New, 2 Unread)</p>
+    <h1>Welcome <%= current_user.first_name %>
+      <%= cl_image_tag current_user.avatar,
+      transformation: [{ height: 200, width: 200, crop: :thumb, gravity: :face }] %> </h1>
+  </div>
 </div>
+
+<div class="tab">
+  <button class="tablinks" onclick="openPage(event, 'Interests')">My Interests <%= "(4 Approved, 2 Pending)" %></button>
+  <button class="tablinks" onclick="openPage(event, 'Celestials')">My Celestials <%= "(5 People Interested)" %></button>
+  <button class="tablinks" onclick="openPage(event, 'Profile')">My Profile</button>
+</div>
+
+<div id="Interests" class="tabcontent">
+  <h3>My Interests</h3>
+  <p>Crazy Comet (Great Deal!)</p>
+  <p>Your Local Nebula - Epic Views</p>
+  <button class="btn btn-primary">See Details</button>
+</div>
+
+<div id="Celestials" class="tabcontent">
+  <h3>My Celestials</h3>
+  <% current_user.celestials.each do |celestial| %>
+    <p><strong><%= celestial.name %></strong> (category: <%= celestial.category %>)</p>
+    <p>€<%= celestial.price %></p>
+  <% end %>
+  <button class="btn btn-primary"><%= link_to "Add a Celestial", new_celestial_path(current_user) %></button>
+</div>
+
+<div id="Profile" class="tabcontent">
+  <h3>My Profile</h3>
+  <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+  <h2>About Me</h2>
+  <h3><%= current_user.bio %></h3>
+  <button class="btn btn-primary"><%= link_to "Edit My Profile", edit_user_path(current_user) %></button>
+</div>
+
+<script>
+
+function openPage(evt, headingName) {
+
+    // Declare all variables
+    var i, tabcontent, tablinks;
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the link that opened the tab
+    document.getElementById(headingName).style.display = "block";
+    event.currentTarget.className += " active";
+}
+
+
+document.getElementById("defaultOpen").click();
+</script>
+
