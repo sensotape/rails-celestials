@@ -19,7 +19,7 @@ class CelestialsController < ApplicationController
     @celestial = current_user.celestials.new(permitted_attributes(Celestial))
     authorize @celestial
     if @celestial.save
-      redirect_to celestials_path
+    redirect_to celestials_path
     else
       render 'new'
     end
