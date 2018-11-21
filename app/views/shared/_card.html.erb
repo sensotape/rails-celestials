@@ -1,0 +1,20 @@
+<div class="card" data-effect="zoom">
+  <figure  class="card__image">
+    <%= cl_image_tag celestial.photo, alt: celestial.name %>
+  </figure>
+  <div class="card__header">
+    <figure class="card__profile">
+
+    </figure>
+  </div>
+  <div class="card__body">
+    <div class="black-bar">
+      <h3 class="card__name"><%= celestial.name %></h3>
+      <p class="card__job"><%= celestial.category %></p>
+    </div>
+    <p class="card__bio"> A really, really cool celestial body.</p>
+  </div>
+  <div class="card__footer">
+    <p class="card__date center-text" align="center">Feb 10 2018</p>
+  </div>
+</div>
