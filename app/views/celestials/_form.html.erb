@@ -2,7 +2,7 @@
 
   <%= f.input :name, error: 'Must have less than 50 characters' %>
 
-  <%= f.input :price %>
+  <%= f.input :price, as: :string %>
 
   <%= f.input :location, error: 'Must contain at least 8 characters' %>
 
@@ -11,6 +11,6 @@
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
 
-  <%= f.submit %>
+  <%= f.submit class: "btn btn-primary"%>
 
 <% end %>
