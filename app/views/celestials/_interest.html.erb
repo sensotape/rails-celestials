@@ -1,6 +1,7 @@
 <div class="interest-modal">
-  <%= button_tag "Express interest", class: 'btn btn-primary', data: { toggle: 'modal', target: '#interestModal' } %>
-
+  <% if message.interest.celestial.user != current_user %>
+    <%= button_tag "Express interest", class: 'btn btn-primary', data: { toggle: 'modal', target: '#interestModal' } %>
+  <% end %>
   <div class="modal fade" id="interestModal" tabindex="-1" role="dialog" aria-labelledby="interestModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">

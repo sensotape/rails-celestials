@@ -5,7 +5,12 @@
   <div class="celestial-desciption">
     <h1><%= @celestial.name %> <%= link_to "| edit", edit_celestial_path(@celestial) if policy(@celestial).update? %></h1>
     <div class="content">
-      <p><strong>Owner</strong> | <%= @celestial.user.full_name %></p>
+      <p>
+        <strong>Owner</strong> | <%= @celestial.user.full_name %>
+        <% if @celestial.user == current_user %>
+          | <%= link_to "You", user_path(current_user) %>
+        <% end %>
+      </p>
       <p><strong>Price</strong> | €<%= @celestial.price %></p>
       <p><strong>Category</strong> | <%= @celestial.category.capitalize %></p>
       <p><strong>Location</strong> | <%= @celestial.location %></p>
