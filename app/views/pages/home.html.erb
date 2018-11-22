@@ -1,23 +1,35 @@
 <div class="banner-container">
   <div class="banner-content text-center">
-    <h1>Schwift shop</h1>
-    <p>Let's get schwifty!</p>
-    <%= link_to "Buy now", celestials_path, class: 'btn btn-primary' %>
+    <h1>Schwift Shop</h1>
+    <h3>Get schwifty.</h3>
+    <%= link_to "Explore", celestials_path, class: 'btn btn-primary' %>
   </div>
 </div>
-<div class="browse-container">
-  <div class="browse-content text-center">
-    <h1>Let's get schwifty!</h1>
-    <p>SOME CARDS HERE</p>
+
+<!-- intro div -->
+<div class="text-center background-white primary-padding black">
+  <h2>Earth-bound possessions are overrated.</h2>
+  <p>Take your game to the next galaxy with <span class="gold bold">Schwift Shop</span>:
+    the most trusted Celestial Body Marketplace in the universe.
+  </p>
+  <div class="icon-container secondary-padding flexbox-horizontal">
+    <div><%= image_tag "rocket.svg", class: 'icon' %>
+      <p class="bold secondary-padding">lightning speed</p>
+    </div>
+    <div><%= image_tag "locked.svg", class: 'icon' %>
+      <p class="bold secondary-padding">super secure</p>
+    </div>
+    <div><%= image_tag "alien.svg", class: 'icon' %>
+      <p class="bold secondary-padding">alien friendly</p>
+    </div>
   </div>
 </div>
-<div class="company-container">
-  <div class="company-content text-center">
-    <h1>Why Schwift shop?</h1>
-    <ul class="list-inline">
-      <li><i class="fas fa-hamsa"></i> Reliable</li>
-      <li><i class="fas fa-money-check-alt"></i> Cheap</li>
-      <li><i class="fas fa-heart"></i> Extraterrestrial comminucations</li>
-    </ul>
-  </div>
+
+<!-- explore div -->
+<div class="explore text-center primary-padding white flexbox-vertical">
+  <h2>So what are you waiting for?</h2>
+  <p class="secondary-margin">A whole <strike>world</strike> <span class="gold bold">universe</span>
+    of extra-terrestial treasures await.
+  </p>
+  <%= link_to "Explore", celestials_path, class: 'btn btn-primary secondary-margin' %>
 </div>

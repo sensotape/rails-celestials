@@ -1,0 +1,40 @@
+.primary-padding {
+  padding: 20px;
+}
+
+.primary-margin {
+  margin: 20px;
+}
+
+.secondary-padding {
+  padding: 10px;
+}
+
+.secondary-margin {
+  margin: 10px;
+}
+
+.background-black {
+  background: black;
+}
+
+.background-white {
+  background: white;
+}
+
+.background-gold {
+  background: $gold;
+}
+
+.flexbox-horizontal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexbox-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
