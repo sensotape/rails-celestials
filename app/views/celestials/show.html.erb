@@ -5,41 +5,13 @@
   <div class="celestial-desciption">
     <h1><%= @celestial.name %> <%= link_to "| edit", edit_celestial_path(@celestial) if policy(@celestial).update? %></h1>
     <div class="content">
+      <p><strong>Owner</strong> | <%= @celestial.user.full_name %></p>
       <p><strong>Price</strong> | €<%= @celestial.price %></p>
       <p><strong>Category</strong> | <%= @celestial.category.capitalize %></p>
       <p><strong>Location</strong> | <%= @celestial.location %></p>
       <p><strong>Description</strong> | <%= @celestial.description ? @celestial.description : "No description provided" %></p>
     </div>
-    <div class="interest-modal">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#interestModal">
-        Express interest
-      </button>
-
-      <!-- Modal -->
-      <div class="modal fade" id="interestModal" tabindex="-1" role="dialog" aria-labelledby="interestModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="interestModalLabel">Send your interest in <%= @celestial.name %></h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>Your message</p>
-              <div class="message-form">
-                <%= simple_form_for(@message) do |f| %>
-                  <%= f.text_area :body, as: :text %>
-                <% end %>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Send</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Modal -->
+    <%= render 'interest', message: @message %>
   </div>
 </div>

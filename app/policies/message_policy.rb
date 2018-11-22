@@ -6,15 +6,10 @@ class MessagePolicy < ApplicationPolicy
   end
 
   def create?
-    record.user == user
-  end
-
-   def destroy?
-    record.user == user
+    record.interest.user == user
   end
 
   def permitted_attributes
     [:body]
   end
-
 end

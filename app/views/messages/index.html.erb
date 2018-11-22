@@ -1,0 +1,5 @@
+<% @all_sent_messages.each do |interest_messages| %>
+  <% interest_messages.each do |message| %>
+    <p>You to <%= message.interest.celestial.user.full_name %>: <%= message.body %> | <%= message.interest.celestial.name %></p>
+  <% end %>
+<% end %>
