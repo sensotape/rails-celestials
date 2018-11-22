@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :celestials
   resources :users, only: [:edit, :update, :show]
-  resources :messages, only: [:index, :show]
+  resources :messages, only: [:index, :create]
 end

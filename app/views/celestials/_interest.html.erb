@@ -1,0 +1,25 @@
+<div class="interest-modal">
+  <% if message.interest.celestial.user != current_user %>
+    <%= button_tag "Express interest", class: 'btn btn-primary', data: { toggle: 'modal', target: '#interestModal' } %>
+  <% end %>
+  <div class="modal fade" id="interestModal" tabindex="-1" role="dialog" aria-labelledby="interestModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="interestModalLabel">Express your interest in <%= message.interest.celestial.name %></h5>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for(message) do |f| %>
+            <%= f.input :interest_id, label: 'Recipient', placeholder: message.interest.celestial.user.full_name, disabled: true, as: :text %>
+            <%= f.input :body, label: 'Your message' %>
+            <%= hidden_field_tag 'celestial_id', message.interest.celestial.id %>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <%= submit_tag("Send", class: 'btn btn-primary', id: 'interest-send', data: { disable_with: "Sending..." }) %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
