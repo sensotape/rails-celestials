@@ -25,6 +25,7 @@
   <% current_user.celestials.each do |celestial| %>
     <p><strong><%= celestial.name %></strong> (category: <%= celestial.category %>)</p>
     <p>€<%= celestial.price %></p>
+     <button class="btn btn-danger"><%= link_to "Delete Celestial", celestial_path(celestial), method: :delete, data: { confirm: "Are you sure?"} %></button>
   <% end %>
   <button class="btn btn-primary"><%= link_to "Add a Celestial", new_celestial_path(current_user) %></button>
 </div>
@@ -35,6 +36,7 @@
   <h2>About Me</h2>
   <h3><%= current_user.bio %></h3>
   <button class="btn btn-primary"><%= link_to "Edit My Profile", edit_user_path(current_user) %></button>
+  <button class="btn btn-danger"><%= link_to "Delete My Profile", user_registration_path(current_user), method: :delete, data: { confirm: "Are you sure about this? The celestial gods will be angry!"} %></button>
 </div>
 
 <script>

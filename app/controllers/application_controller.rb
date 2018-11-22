@@ -32,6 +32,11 @@ class ApplicationController < ActionController::Base
 
   private
 
+
+  def after_sign_out_path_for(resource_or_scope)
+    root_path
+  end
+
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
 
