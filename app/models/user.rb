@@ -7,8 +7,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :celestials, through: :interests
-  has_many :celestials
-  has_many :interests
+  has_many :celestials, dependent: :destroy
+  has_many :interests, dependent: :destroy
   has_many :messages, through: :interests
 
   validates :first_name, presence: true, length: { maximum: 35 }
