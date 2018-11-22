@@ -1,28 +1,28 @@
-.button {
+.button-main {
+  margin: 20px 25px !important;
   width: auto;
   border-radius: 4px;
   border: solid $gold 1px;
   text-align: center;
   padding: 10px 20px;
-  margin: 0 20px;
   color: $gold;
-  background: black;
-  transition: all ease 0.5s;
+  background: transparent;
+  transition: all ease 0.3s;
 
   &.active {
-    background: #c2a061;
-    color: white;
-    border: solid #c2a061 1px;
+    background: $gold;
+    color: black;
+    border: solid $gold 1px;
   }
+
   &:hover {
-    opacity: 0.5;
+    transform: scale(1.03, 1.03);
+    text-decoration: none;
+    border: solid $gold 1px;
+    opacity: 0.85;
   }
 }
 
-.gold-button {
-
-}
-
-.delete-button {
+.button-delete {
 
 }

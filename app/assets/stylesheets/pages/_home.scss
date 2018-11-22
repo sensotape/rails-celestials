@@ -12,18 +12,14 @@ body {
   height: calc(100vh - 70px);
   color: white;
   padding-top: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .banner-content {
-  margin: 12em auto;
-  h1 {
-    margin-bottom: 15px;
-  }
   h3 {
     opacity: 0.85;
-  }
-  a {
-    margin-top: 10px;
   }
 }
 
