@@ -1,0 +1,28 @@
+.button {
+  width: auto;
+  border-radius: 4px;
+  border: solid $gold 1px;
+  text-align: center;
+  padding: 10px 20px;
+  margin: 0 20px;
+  color: $gold;
+  background: black;
+  transition: all ease 0.5s;
+
+  &.active {
+    background: #c2a061;
+    color: white;
+    border: solid #c2a061 1px;
+  }
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.gold-button {
+
+}
+
+.delete-button {
+
+}

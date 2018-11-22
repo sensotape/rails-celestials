@@ -14,30 +14,29 @@
   background: black;
 }
 
-.filter-box {
-  width: auto;
-  border-radius: 12px;
-  border: solid #c2a061 1px;
-  text-align: center;
-  padding: 5px 10px;
-  margin: 0 20px;
-  color: #c2a061;
-  background: black;
-  transition: all ease 0.5s;
+// .filter-box {
+//   width: auto;
+//   border-radius: 12px;
+//   border: solid #c2a061 1px;
+//   text-align: center;
+//   padding: 5px 10px;
+//   margin: 0 20px;
+//   color: #c2a061;
+//   background: black;
+//   transition: all ease 0.5s;
 
-  &.active {
-    background: #c2a061;
-    color: white;
-    border: solid #c2a061 1px;
-  }
-  &:hover {
-    opacity: 0.5;
-  }
-}
+//   &.active {
+//     background: #c2a061;
+//     color: white;
+//     border: solid #c2a061 1px;
+//   }
+//   &:hover {
+//     opacity: 0.5;
+//   }
+// }
 
 .button-container {
   margin: 25px 0;
   display: flex;
-  // padding: 20px;
   justify-content: space-between;
 }
