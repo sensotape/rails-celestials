@@ -37,7 +37,10 @@ class CelestialsController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    @celestial.destroy
+    redirect_to user_path(current_user)
+  end
 
   private
 
