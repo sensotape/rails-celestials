@@ -1,16 +1,15 @@
 <div class='container'>
   <div class="white" id="welcome">
-    <h1>Welcome <%= current_user.first_name %>
+    <h1>Welcome, <%= current_user.first_name %>!</h1>
       <div class="round-avatar"><%= cl_image_tag current_user.avatar,
       transformation: [{ height: 200, width: 200, crop: :thumb, gravity: :face}] %>
       </div>
-      </h1>
   </div>
 
 <div class="tab">
   <button class="tablinks" onclick="openPage(event, 'Profile')"><i class="fas fa-user-astronaut"></i>  My Profile</button>
   <button class="tablinks" onclick="openPage(event, 'Interests')"><i class="fas fa-space-shuttle"></i> My Interests <%= "(4 Approved, 2 Pending)" %></button>
-  <button class="tablinks" onclick="openPage(event, 'Celestials')"><i class="far fa-sun"></i> My Celestials <%= "(5 People Interested)" %></button>
+  <button class="tablinks" onclick="openPage(event, 'Celestials')"><i class="fas fa-sun"></i> My Celestials <%= "(5 People Interested)" %></button>
 </div>
 
 <div id="Profile" class="tabcontent">
@@ -19,7 +18,7 @@
   <h2>About Me</h2>
   <h3><%= current_user.bio %></h3>
   <button class="btn btn-primary"><%= link_to "Edit My Profile", edit_user_path(current_user) %></button>
-  <button class="btn btn-danger"><%= link_to "Delete My Profile", user_registration_path(current_user), method: :delete, data: { confirm: "Are you sure about this? The celestial gods will be angry!"} %></button>
+  <button class="btn btn-primary"><%= link_to "Delete My Profile", user_registration_path(current_user), method: :delete, data: { confirm: "Are you sure about this? The celestial gods will be angry!"} %></button>
 </div>
 
 <div id="Interests" class="tabcontent">
@@ -34,7 +33,7 @@
   <% current_user.celestials.each do |celestial| %>
     <p><strong><%= celestial.name %></strong> (category: <%= celestial.category %>)</p>
     <p>€<%= celestial.price %></p>
-     <button class="btn btn-danger"><%= link_to "Delete Celestial", celestial_path(celestial), method: :delete, data: { confirm: "Are you sure?"} %></button>
+     <button class="btn btn-primary"><%= link_to "Delete Celestial", celestial_path(celestial), method: :delete, data: { confirm: "Are you sure?"} %></button>
   <% end %>
   <div class="btn btn-primary"><%= link_to "Add a Celestial", new_celestial_path(current_user) %></div>
 </div>
