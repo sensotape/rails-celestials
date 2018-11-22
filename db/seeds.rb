@@ -6,6 +6,7 @@ User.destroy_all
 puts 'Creating ninjas...'
 andrew = User.create!(
   email: 'a.erlanger@gmail.com',
+  avatar: open('https://res.cloudinary.com/dlatcqlhm/image/upload/v1542906721/user.jpg') ,
   first_name: 'Andrew',
   last_name: 'Erlanger',
   password: '123456',
@@ -13,6 +14,7 @@ andrew = User.create!(
 )
 marcel = User.create!(
   email: 'marcelsf23br@gmail.com',
+  avatar: open('https://res.cloudinary.com/dlatcqlhm/image/upload/v1542906721/2018-11-22_18.10.49.jpg') ,
   first_name: 'Marcel',
   last_name: 'Fonseca',
   password: '123456',
@@ -20,6 +22,7 @@ marcel = User.create!(
 )
 maylee = User.create!(
   email: 'mayleesia@gmail.com',
+  avatar: open('https://res.cloudinary.com/dlatcqlhm/image/upload/v1542906721/george-washington.jpg') ,
   first_name: 'May-Lee',
   last_name: 'Sia',
   password: '123456',
@@ -27,6 +30,7 @@ maylee = User.create!(
 )
 aigerim = User.create!(
   email: 'sensotape@gmail.com',
+  avatar: open( 'https://res.cloudinary.com/dlatcqlhm/image/upload/v1542906723/IMG_2340.jpg'),
   first_name: 'Aigerim',
   last_name: 'Kalysheva',
   password: '123456',
