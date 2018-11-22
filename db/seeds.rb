@@ -1,7 +1,7 @@
 puts 'Dropping db...'
 
-User.destroy_all
 Celestial.destroy_all
+User.destroy_all
 
 puts 'Creating ninjas...'
 andrew = User.create!(
@@ -36,10 +36,35 @@ aigerim = User.create!(
 puts 'Creating celestials...'
 
 body = Celestial.new(
+  name: 'Pillars of Creation',
+  price: 950000000.00,
+  category: 'nebula',
+  location: '7.000 Light years away from Earth',
+  photo: ''
+)
+
+body = Celestial.new(
+  name: 'Andromeda Galaxy',
+  price: 1000000000000.00,
+  category: 'nebula',
+  location: '2.5 million light years away from Earth',
+  photo: ''
+)
+
+body = Celestial.new(
   name: 'Halley',
   price: 20.99,
   category: 'asteroid',
-  location: 'space 11eknf95'
+  location: 'space 11eknf95',
+  photo: ''
+)
+
+body = Celestial.new(
+  name: 'S5 0014+81',
+  price: 0.99,
+  category: 'black hole',
+  location: 'Cepheus Constelation',
+  photo: ''
 )
 body.user = andrew
 body.save!
