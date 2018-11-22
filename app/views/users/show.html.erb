@@ -17,7 +17,7 @@
   <h3>My Interests</h3>
   <p>Crazy Comet (Great Deal!)</p>
   <p>Your Local Nebula - Epic Views</p>
-  <button class="btn btn-primary">See Details</button>
+  <div class="btn btn-primary">See Details</div>
 </div>
 
 <div id="Celestials" class="tabcontent">
@@ -26,7 +26,7 @@
     <p><strong><%= celestial.name %></strong> (category: <%= celestial.category %>)</p>
     <p>€<%= celestial.price %></p>
   <% end %>
-  <button class="btn btn-primary"><%= link_to "Add a Celestial", new_celestial_path(current_user) %></button>
+  <div class="btn btn-primary"><%= link_to "Add a Celestial", new_celestial_path(current_user) %></div>
 </div>
 
 <div id="Profile" class="tabcontent">
@@ -34,7 +34,7 @@
   <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
   <h2>About Me</h2>
   <h3><%= current_user.bio %></h3>
-  <button class="btn btn-primary"><%= link_to "Edit My Profile", edit_user_path(current_user) %></button>
+  <div class="btn btn-primary"><%= link_to "Edit My Profile", edit_user_path(current_user) %></div>
 </div>
 
 <script>
