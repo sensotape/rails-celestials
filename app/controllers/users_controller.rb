@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
     authorize @user
-
   end
 
   def update
@@ -18,6 +17,13 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @user = current_user
+    authorize @user
+    @user.destroy
+    redirect_to root_path
   end
 
   private
