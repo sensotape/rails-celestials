@@ -18,7 +18,7 @@
   min-width: 100px;
 }
 .message-name h3 {
-  color: white;
+  color: $gold;
   font-size: 20px;
   margin-bottom: 0px;
 }
@@ -62,8 +62,8 @@
   color: red;
 }
 .status.pending {
-  color: lightgrey;
-  font-size: 15px;
+  color: $gold;
+  font-size: 20px;
 }
 
 #date {
@@ -72,6 +72,7 @@
 }
 
 .price {
+  color: white;
   font-size: 20px;
 }
 
