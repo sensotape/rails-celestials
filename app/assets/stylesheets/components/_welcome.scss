@@ -2,11 +2,12 @@
   color: white;
   position: relative 20px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  padding: 20px;
 
 }
 
-.avatar-circle {
-  border-radius: 50%;
+#welcome div {
+  margin: 15px;
 }
