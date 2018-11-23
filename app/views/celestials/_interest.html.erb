@@ -16,7 +16,7 @@
             Express your interest in <%= celestial.name %>
           </h5>
         </div>
-        <div class="modal-body">
+        <div class="modal-body text-left">
           <% if conversation %>
             <%= simple_form_for(conversation) do |f| %>
               <%= f.input :recipient, label: 'Recipient', input_html: { value: celestial.user.full_name} , disabled: true, as: :text %>
