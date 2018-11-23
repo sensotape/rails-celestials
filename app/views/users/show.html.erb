@@ -1,42 +1,53 @@
-<div class='container'>
-  <div class="welcome">
-    <p>My Messages (3 New, 2 Unread)</p>
-    <h1>Welcome <%= current_user.first_name %>
-      <%= cl_image_tag current_user.avatar,
-      transformation: [{ height: 200, width: 200, crop: :thumb, gravity: :face }] %> </h1>
+<div class="container" id="welcome">
+  <div><h2>Welcome, <%= current_user.first_name %>!</h2></div>
+</div>
+
+<div class="tab-container">
+  <div class="tab">
+    <button id="profile-button" class="tablinks" onclick="openPage(event, 'Profile')"><h4><i class="fas fa-user-astronaut"></i>My Profile</h4></button>
+    <button class="tablinks" onclick="openPage(event, 'Interests')"><h4><i class="fas fa-space-shuttle"></i>My Interests</h4></button>
+    <button class="tablinks" onclick="openPage(event, 'Celestials')"><h4><i class="fas fa-sun"></i>My Celestials</h4></button>
   </div>
-</div>
 
-<div class="tab">
-  <button class="tablinks" onclick="openPage(event, 'Interests')">My Interests <%= "(4 Approved, 2 Pending)" %></button>
-  <button class="tablinks" onclick="openPage(event, 'Celestials')">My Celestials <%= "(5 People Interested)" %></button>
-  <button class="tablinks" onclick="openPage(event, 'Profile')">My Profile</button>
-</div>
+  <div id="Profile" class="tabcontent">
+    <div class="tab-body">
+       <div clas="content">
+        <h2><%= current_user.first_name %> <%= current_user.last_name %>  <div><%= cl_image_tag current_user.avatar,
+      transformation: [{ height: 100, width: 100, crop: :thumb, gravity: :face}], style: "border-radius:50%;"%></h2></div>
+        <h3><%= current_user.bio %></h3>
+       </div>
+      <button class="button-main"><%= link_to "Edit My Profile", edit_user_path(current_user) %></button>
+      <div id="delete"><%= link_to "Delete My Profile", user_registration_path(current_user), method: :delete, data: { confirm: "Are you sure about this? The celestial gods will be angry!"} %></div>
+    </div>
+  </div>
 
-<div id="Interests" class="tabcontent">
-  <h3>My Interests</h3>
-  <p>Crazy Comet (Great Deal!)</p>
-  <p>Your Local Nebula - Epic Views</p>
-  <button class="btn btn-primary">See Details</button>
-</div>
+  <div id="Interests" class="tabcontent">
+    <div class="tab-body">
+      <div class="tab-card">
+        <div class="content">
+          <% 'current_user.celestials.interests.each do |interest|' %>
+          <h3><%= 'interest.name' %></h3>
+        </div>
+        <button class="button-main">See Details</button>
+      </div>
+    </div>
+  </div>
 
-<div id="Celestials" class="tabcontent">
-  <h3>My Celestials</h3>
-  <% current_user.celestials.each do |celestial| %>
-    <p><strong><%= celestial.name %></strong> (category: <%= celestial.category %>)</p>
-    <p>€<%= celestial.price %></p>
-     <button class="btn btn-danger"><%= link_to "Delete Celestial", celestial_path(celestial), method: :delete, data: { confirm: "Are you sure?"} %></button>
-  <% end %>
-  <button class="btn btn-primary"><%= link_to "Add a Celestial", new_celestial_path(current_user) %></button>
-</div>
+  <div id="Celestials" class="tabcontent">
+    <div class="tab-body">
+      <div class="tab-card">
+        <div class="content">
+          <% current_user.celestials.each do |celestial| %>
+            <h3><strong><%= celestial.name %></strong> (category: <%= celestial.category %>)</h3>
+            <p>€<%= celestial.price %></p>
+        </div>
+            <button class="button-main"><%= link_to "Delete Celestial", celestial_path(celestial), method: :delete, data: { confirm: "Are you sure?"} %></button>
+          <% end %>
+        </div>
+      <button class="button-main"><%= link_to "Add a Celestial", new_celestial_path(current_user) %></button>
+    </div>
+  </div>
 
-<div id="Profile" class="tabcontent">
-  <h3>My Profile</h3>
-  <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
-  <h2>About Me</h2>
-  <h3><%= current_user.bio %></h3>
-  <button class="btn btn-primary"><%= link_to "Edit My Profile", edit_user_path(current_user) %></button>
-  <button class="btn btn-danger"><%= link_to "Delete My Profile", user_registration_path(current_user), method: :delete, data: { confirm: "Are you sure about this? The celestial gods will be angry!"} %></button>
 </div>
 
 
@@ -63,7 +74,7 @@ function openPage(evt, headingName) {
     event.currentTarget.className += " active";
 }
 
-
-document.getElementById("defaultOpen").click();
+document.getElementById('profile-button').focus();
+openPage(event,'Profile');
 </script>
 

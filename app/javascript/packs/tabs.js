@@ -1,4 +1,4 @@
-function openPage(evt, headingName) {
+    function openPage(evt, headingName) {
 
     // Declare all variables
     var i, tabcontent, tablinks;
