@@ -1,14 +1,14 @@
 /* GLOBAL VARIABLES */
-:root {
-  --font: "Roboto", sans-serif;
-  --fontOrigin: 1rem;     /* 16px */
-  --fontSmall: 0.625em;   /* 10px */
-  --fontMedium: 0.875em;  /* 14px */
-  --fontNormal: 1em;      /* 16px */
-  --fontLarge:  1.6em;  /* 22px */
-  --fontLight: 100;
-  --fontRegular: 400;
-  --speed: 0.65s;
+// :root {
+  // --font: "Roboto", sans-serif;
+  // --fontOrigin: 1rem;     /* 16px */
+  // --fontSmall: 0.625em;   /* 10px */
+  // --fontMedium: 0.875em;  /* 14px */
+  // --fontNormal: 1em;      /* 16px */
+  // --fontLarge:  1.6em;  /* 22px */
+  // --fontLight: 100;
+  // --fontRegular: 400;
+  // --speed: 0.65s;
 
   // ORIGINAL FONT SIZES
   // --fontOrigin: 1rem;     /* 16px */
@@ -16,14 +16,14 @@
   // --fontMedium: 0.875em;  /* 14px */
   // --fontNormal: 1em;      /* 16px */
   // --fontLarge:  1.375em;  /* 22px */
-}
+// }
 
 @keyframes zoom {
   from {
-    object-position: 0 50%;
+    object-position: 50 0%;
   }
   to {
-    object-position: 100% 50%;
+    object-position: 0 100%;
   }
 }
 
@@ -95,8 +95,8 @@
 //   text-transform: uppercase;
 //   color: #a9a9a9;
 //   cursor: pointer;
-//   -webkit-transition: all var(--speed) ease;
-//   transition: all var(--speed) ease;
+//   -webkit-transition: all 0.65s ease;
+//   transition: all 0.65s ease;
 // }
 
 // .menu__item::after {
@@ -106,8 +106,8 @@
 //   height: 2px;
 //   margin-top: 6px;
 //   background: rgba(100, 100, 250, 1);
-//   -webkit-transition: all var(--speed) ease;
-//   transition: all var(--speed) ease;
+//   -webkit-transition: all 0.65s ease;
+//   transition: all 0.65s ease;
 // }
 
 // .menu__item:hover {
@@ -139,8 +139,8 @@
   border-radius: 8px;
   box-shadow: 0 16px 60px rgba(0, 0, 0, 0.3);
   cursor: pointer;
-  -webkit-transition: all var(--speed) ease;
-  transition: all var(--speed) ease;
+  -webkit-transition: all 0.65s ease;
+  transition: all 0.65s ease;
 }
 
 .card:hover {
@@ -160,8 +160,8 @@
   border: 0;
   opacity: 0;
   border-radius: 3px;
-  -webkit-transition: all var(--speed) ease;
-  transition: all var(--speed) ease;
+  -webkit-transition: all 0.65s ease;
+  transition: all 0.65s ease;
 }
 
 .card__save:focus {
@@ -177,8 +177,8 @@
   font-size: 18px;
   color: rgba(255, 255, 255, 0.6);
   cursor: pointer;
-  -webkit-transition: all var(--speed) ease;
-  transition: all var(--speed) ease;
+  -webkit-transition: all 0.65s ease;
+  transition: all 0.65s ease;
 }
 
 .card__save:hover i {
@@ -216,8 +216,8 @@
   height: 100%;
   object-fit: cover;
   opacity: 1;
-  -webkit-transition: all var(--speed) ease;
-  transition: all var(--speed) ease;
+  -webkit-transition: all 0.65s ease;
+  transition: all 0.65s ease;
 }
 
 .card:hover .card__image img {
@@ -259,8 +259,8 @@
   object-position: 50% 50%;
   -webkit-filter: grayscale(50%) contrast(75%) brightness(1.3);
   filter: grayscale(50%) contrast(75%) brightness(1.3);
-  -webkit-transition: all var(--speed) ease;
-  transition: all var(--speed) ease;
+  -webkit-transition: all 0.65s ease;
+  transition: all 0.65s ease;
   mix-blend-mode: normal;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -281,26 +281,27 @@
   justify-self: center;
   margin-bottom: 2px;
   color: white;
-  font-size: var(--fontLarge);
-  font-weight: var(--fontLight);
-  letter-spacing: 0.1rem;
+  // font-size: var(--fontLarge);
+  // font-weight: var(--fontLight);
+  letter-spacing: 0.2rem;
   text-align: center;
   text-transform: uppercase;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  // text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
   background: -webkit-linear-gradient(white, #a1a1a1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-transition: all var(--speed) ease;
-  transition: all var(--speed) ease;
+  -webkit-transition: all 0.65s ease;
+  transition: all 0.65s ease;
 }
 
 .card:hover .card__name {
   background: -webkit-linear-gradient(white, #c1c1c1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  transform: scale(1.03, 1.03);
 }
 
-.card__job {
+.card__price {
   align-self: center;
   justify-self: center;
   display: inline-block;
@@ -308,13 +309,13 @@
   font-weight: var(--fontLight);
   text-align: center;
   letter-spacing: 0.35rem;
-  color: rgba(100, 130, 200, 0.85);
-  -webkit-transition: all var(--speed) ease;
-  transition: all var(--speed) ease;
+  color: $gold;
+  -webkit-transition: all 0.65s ease;
+  transition: all 0.65s ease;
 }
 
-.card:hover .card__job {
-  color: rgba(100, 130, 200, 1);
+.card:hover .card__price {
+  transform: scale(1.03, 1.03);
 }
 
 .card__bio {
@@ -328,8 +329,8 @@
   /*text-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.35);*/
   color: rgba(255, 255, 255, 0.65);
   opacity: 0;
-  -webkit-transition: all var(--speed) ease;
-  transition: all var(--speed) ease;
+  -webkit-transition: all 0.65s ease;
+  transition: all 0.65s ease;
   padding: 0 10px;
 }
 
@@ -348,8 +349,8 @@
   // grid-template-areas: "date category";
   padding: 10px 20px;
   opacity: 0;
-  -webkit-transition: all var(--speed) ease;
-  transition: all var(--speed) ease;
+  -webkit-transition: all 0.65s ease;
+  transition: all 0.65s ease;
 }
 
 .card:hover .card__footer {
@@ -358,7 +359,7 @@
   opacity: 1;
 }
 
-.card__date {
+.card__category {
   grid-area: date;
   display: inline-block;
   align-self: left;
@@ -367,7 +368,8 @@
   font-weight: var(--fontLight);
   text-transform: uppercase;
   text-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.45);
-  color: rgba(250, 250, 250, 0.4);
+  color: white;
+  opacity: 0.85;
 }
 
 /* MODIFIERS */

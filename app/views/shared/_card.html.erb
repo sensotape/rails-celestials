@@ -1,3 +1,4 @@
+<a href='/celestials/<%= celestial.id %>' style="text-decoration: none;">
 <div class="card" data-effect="zoom">
   <figure  class="card__image">
     <%= cl_image_tag celestial.photo, alt: celestial.name %>
@@ -9,12 +10,13 @@
   </div>
   <div class="card__body">
     <div class="black-bar">
-      <h3 class="card__name"><%= link_to celestial.name, celestial_path(celestial) %></h3>
-      <p class="card__job"><%= celestial.category %></p>
+      <h3 class="card__name"><%= celestial.name %></h3>
+      <p class="card__price">€<%= celestial.price %></p>
     </div>
-    <p class="card__bio"> A really, really cool celestial body.</p>
+    <p class="card__bio"></p>
   </div>
   <div class="card__footer">
-    <p class="card__date center-text" align="center">Feb 10 2018</p>
+    <p class="card__category center-text" align="center"><%= celestial.category %></p>
   </div>
 </div>
+</a>
