@@ -2,14 +2,24 @@ class CelestialsController < ApplicationController
   before_action :set_celestial, only: [:show, :edit, :update, :destroy]
 
   def index
-    @celestial = Celestial.new
-    save_filters
-    retreive_celestials
-    calculate_min_max_ave if @celestials
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR category ILIKE :query"
+      @celestial = Celestial.new
+      save_filters
+      @celestials = Celestial.where(sql_query, query: "%#{params[:query]}%")
+      calculate_min_max_ave if @celestials
+    else
+      @celestial = Celestial.new
+      save_filters
+      retreive_celestials
+      calculate_min_max_ave if @celestials
+    end
   end
 
   def show
-    @message = Message.new
+    @interest = current_user.interests.new
+    @interest.celestial = @celestial
+    @message = @interest.messages.new
   end
 
   def new
@@ -21,7 +31,7 @@ class CelestialsController < ApplicationController
     @celestial = current_user.celestials.new(permitted_attributes(Celestial))
     authorize @celestial
     if @celestial.save
-    redirect_to celestials_path
+      redirect_to celestials_path
     else
       render 'new'
     end

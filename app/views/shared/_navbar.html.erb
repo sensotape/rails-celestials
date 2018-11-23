@@ -10,7 +10,7 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Random", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Random", celestial_path(Celestial.all.sample), class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Explore", celestials_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Messages", messages_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
