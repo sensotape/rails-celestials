@@ -1,14 +1,18 @@
 <div class="interest-modal">
   <% if message.interest.celestial.user != current_user %>
-    <%= button_tag "Express interest", class: 'btn btn-primary', data: { toggle: 'modal', target: '#interestModal' } %>
+      <button type="button" class="button-main" data-toggle="modal" data-target="#interestModal" style="margin: 0">
+        Make Bid
+      </button>
   <% end %>
+
+
   <div class="modal fade" id="interestModal" tabindex="-1" role="dialog" aria-labelledby="interestModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="interestModalLabel">Express your interest in <%= message.interest.celestial.name %></h5>
         </div>
-        <div class="modal-body">
+        <div class="modal-body text-left">
           <%= simple_form_for(message) do |f| %>
             <%= f.input :interest_id, label: 'Recipient', placeholder: message.interest.celestial.user.full_name, disabled: true, as: :text %>
             <%= f.input :body, label: 'Your message' %>
