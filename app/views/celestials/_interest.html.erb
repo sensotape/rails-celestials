@@ -19,7 +19,7 @@
         <div class="modal-body">
           <% if conversation %>
             <%= simple_form_for(conversation) do |f| %>
-              <%= f.input :recipient, label: 'Recipient', placeholder: celestial.user.full_name, disabled: true, as: :text %>
+              <%= f.input :recipient, label: 'Recipient', input_html: { value: celestial.user.full_name} , disabled: true, as: :text %>
               <%= f.input :greeting, label: 'Your message' %>
               <%= hidden_field_tag 'celestial_id', celestial.id %>
               <div class="modal-footer">
