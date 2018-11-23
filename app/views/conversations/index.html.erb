@@ -1,11 +1,11 @@
 <div class="full-height">
   <% @conversations.each do |conversation| %>
     <div class="message">
-      <%= cl_image_tag conversation.interest.user.avatar,
+      <%= cl_image_tag conversation.interest.celestial.user.avatar,
          transformation: [{ height: 70, width: 70, crop: :thumb, gravity: :face}], style: "border-radius:50%;"%>
 
       <div class="message-name">
-        <h3><%= conversation.interest.user.full_name %></h3>
+        <h3><%= conversation.interest.celestial.user.full_name %></h3>
         <p><%= link_to conversation.interest.celestial.name, celestial_path(conversation.interest.celestial.id) %></p>
       </div>
       <div class="message-body">
