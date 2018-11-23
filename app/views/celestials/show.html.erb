@@ -15,7 +15,7 @@
           <p><strong class="gold">Category:</strong> <%= @celestial.category.capitalize %></p>
         </div>
         <div class="primary-margin">
-        <p><%= @celestial.description %></p>
+          <p><%= @celestial.description %></p>
         </div>
 
         <div class="show-features">
@@ -23,13 +23,9 @@
           <%= render 'interest', message: @message %>
 
           <!-- modal 2 -->
-          <div class="seller-modal">
-            <button type="button" class="button-main" data-toggle="modal" data-target="#sellerModal" style="margin: 0">
-              Seller Profile
-            </button>
-          </div>
+          <%= render 'seller', celestial: @celestial %>
         </div>
       </div>
     </div>
-
   </div>
+</div>
