@@ -6,7 +6,7 @@ class MessagePolicy < ApplicationPolicy
   end
 
   def create?
-    record.interest.user == user
+    record.conversation.sender == user || record.conversation.recipient == user
   end
 
   def permitted_attributes

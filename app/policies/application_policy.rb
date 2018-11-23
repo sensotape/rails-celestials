@@ -7,7 +7,8 @@ class ApplicationPolicy
   end
 
   def index?
-    false
+    # false
+    true
   end
 
   def show?
@@ -15,7 +16,8 @@ class ApplicationPolicy
   end
 
   def create?
-    false
+    # false
+    true
   end
 
   def new?
@@ -23,7 +25,8 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    # false
+    true
   end
 
   def edit?
@@ -31,7 +34,8 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
+    # false
+    true
   end
 
   def scope

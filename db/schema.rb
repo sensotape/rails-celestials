@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_22_102454) do
+ActiveRecord::Schema.define(version: 2018_11_23_155953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,8 +25,20 @@ ActiveRecord::Schema.define(version: 2018_11_22_102454) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", null: false
-    t.boolean "sold", default: false
+    t.boolean "sold", default: false, null: false
     t.index ["user_id"], name: "index_celestials_on_user_id"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.bigint "interest_id"
+    t.bigint "sender_id"
+    t.bigint "recipient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "greeting", default: "Greetings, earthling.\n I am desperate to buy your sexy celestial.\n Let's chat?"
+    t.index ["interest_id"], name: "index_conversations_on_interest_id"
+    t.index ["recipient_id"], name: "index_conversations_on_recipient_id"
+    t.index ["sender_id"], name: "index_conversations_on_sender_id"
   end
 
   create_table "interests", force: :cascade do |t|
@@ -40,11 +52,14 @@ ActiveRecord::Schema.define(version: 2018_11_22_102454) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.bigint "interest_id"
     t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["interest_id"], name: "index_messages_on_interest_id"
+    t.bigint "conversation_id"
+    t.bigint "user_id"
+    t.boolean "read", default: false, null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,7 +79,7 @@ ActiveRecord::Schema.define(version: 2018_11_22_102454) do
   end
 
   add_foreign_key "celestials", "users"
+  add_foreign_key "conversations", "interests"
   add_foreign_key "interests", "celestials"
   add_foreign_key "interests", "users"
-  add_foreign_key "messages", "interests"
 end

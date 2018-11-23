@@ -1,29 +1,32 @@
 <div class="interest-modal">
-  <% if @celestial.interests.any? { |interest| interest.user == current_user }%>
+  <% if celestial.interests.any? { |interest| interest.user == current_user }%>
     <div class="refusal text-left"> You have already expressed interest.</div>
      <div class="refusal text-left"> Check your inbox, earthling!</div>
-  <% elsif message.interest.celestial.user != current_user %>
+  <% elsif celestial.user != current_user %>
       <button type="button" class="button-main" data-toggle="modal" data-target="#interestModal" style="margin: 0">
         Make Bid
       </button>
   <% end %>
 
-
   <div class="modal fade" id="interestModal" tabindex="-1" role="dialog" aria-labelledby="interestModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="interestModalLabel">Express your interest in <%= message.interest.celestial.name %></h5>
+          <h5 class="modal-title" id="interestModalLabel">
+            Express your interest in <%= celestial.name %>
+          </h5>
         </div>
-        <div class="modal-body text-left">
-          <%= simple_form_for(message) do |f| %>
-            <%= f.input :interest_id, label: 'Recipient', placeholder: message.interest.celestial.user.full_name, disabled: true, as: :text %>
-            <%= f.input :body, label: 'Your message' %>
-            <%= hidden_field_tag 'celestial_id', message.interest.celestial.id %>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <%= submit_tag("Send", class: 'btn btn-primary', id: 'interest-send', data: { disable_with: "Sending..." }) %>
-            </div>
+        <div class="modal-body">
+          <% if conversation %>
+            <%= simple_form_for(conversation) do |f| %>
+              <%= f.input :recipient, label: 'Recipient', placeholder: celestial.user.full_name, disabled: true, as: :text %>
+              <%= f.input :greeting, label: 'Your message' %>
+              <%= hidden_field_tag 'celestial_id', celestial.id %>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <%= submit_tag("Send", class: 'btn btn-primary', id: 'interest-send', data: { disable_with: "Sending..." }) %>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div>
