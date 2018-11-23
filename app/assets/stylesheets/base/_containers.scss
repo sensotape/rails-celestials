@@ -36,6 +36,12 @@
   align-items: center;
 }
 
+.flexbox-space-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .flexbox-vertical {
   display: flex;
   flex-direction: column;
