@@ -1,45 +1,69 @@
-<div class="grid-container">
-  <div class="celestial-photo">
-    <%= cl_image_tag @celestial.photo, width: 500, height: 620, crop: :scale %>
-  </div>
-  <div class="celestial-desciption">
-    <h1><%= @celestial.name %> <%= link_to "| edit", edit_celestial_path(@celestial) if policy(@celestial).update? %></h1>
-    <div class="content">
-      <p><strong>Price</strong> | €<%= @celestial.price %></p>
-      <p><strong>Category</strong> | <%= @celestial.category.capitalize %></p>
-      <p><strong>Location</strong> | <%= @celestial.location %></p>
-      <p><strong>Description</strong> | <%= @celestial.description ? @celestial.description : "No description provided" %></p>
-    </div>
-    <div class="interest-modal">
-      <button type="button" class="button-main" data-toggle="modal" data-target="#interestModal">
-        Express interest
-      </button>
+<div class="full-height">
+  <div class="page-container flexbox-horizontal">
 
-      <!-- Modal -->
-      <div class="modal fade" id="interestModal" tabindex="-1" role="dialog" aria-labelledby="interestModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="interestModalLabel">Send your interest in <%= @celestial.name %></h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>Your message</p>
-              <div class="message-form">
-                <%= simple_form_for(@message) do |f| %>
-                  <%= f.text_area :body, as: :text %>
-                <% end %>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Send</button>
-            </div>
+    <!-- image side -->
+    <div class="photo-side">
+      <%= cl_image_tag @celestial.photo, :gravity=>"east", :crop=>"fill", id:"show-image" %>
+    </div>
+
+    <!-- details side -->
+    <div class="details-side flexbox-horizontal">
+      <div class="content-box text-center">
+        <h1><%= @celestial.name %></h1>
+        <div class="show-features">
+          <p><strong class="gold">Price:</strong> €<%= @celestial.price %></p>
+          <p><strong class="gold">Category:</strong> <%= @celestial.category.capitalize %></p>
+        </div>
+        <div class="primary-margin">
+        <p><%= @celestial.description %></p>
+        </div>
+
+        <div class="show-features">
+          <!-- modal 1 -->
+          <div class="interest-modal">
+            <button type="button" class="button-main" data-toggle="modal" data-target="#interestModal" style="margin: 0">
+              Make Bid
+            </button>
+          </div>
+
+          <!-- modal 2 -->
+          <div class="seller-modal">
+            <button type="button" class="button-main" data-toggle="modal" data-target="#sellerModal" style="margin: 0">
+              Seller Profile
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="interestModal" tabindex="-1" role="dialog" aria-labelledby="interestModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="interestModalLabel">Send your interest in <%= @celestial.name %></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Your message</p>
+          <div class="message-form">
+            <%= simple_form_for(@message) do |f| %>
+            <%= f.text_area :body, as: :text %>
+            <% end %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
 </div>
