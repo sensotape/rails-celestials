@@ -1,15 +1,6 @@
 <div class="full-height">
 <div class="container">
 
-<div class="search-bar">
-<%= form_tag celestials_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a celestial object"
-  %>
-<% end %>
-</div>
   <!-- FILTERS -->
   <%= render 'shared/filters' %>
 

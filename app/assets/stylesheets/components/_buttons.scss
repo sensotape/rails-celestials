@@ -1,6 +1,7 @@
 .button-main {
   margin: 20px 25px;
   width: auto;
+  height: 2.6em;
   border-radius: 4px;
   border: solid $gold 1px;
   text-align: center;
@@ -19,6 +20,27 @@
 
   &:hover {
     transform: scale(1.03, 1.03);
+    text-decoration: none;
+    border: solid $gold 1px;
+    opacity: 0.85;
+  }
+}
+
+#search-bar {
+  width: 400px;
+  height: 2.6em;
+  margin: 20px 25px;
+  border-radius: 4px;
+  border: solid $gold 1px;
+  text-align: center;
+  padding: 10px 20px;
+  color: $gold !important;
+  background: transparent;
+  transition: all ease 0.3s;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  &:hover {
+    // transform: scale(1.03, 1.03);
     text-decoration: none;
     border: solid $gold 1px;
     opacity: 0.85;

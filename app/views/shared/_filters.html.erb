@@ -6,6 +6,14 @@
   <button class='button-main <%= "active" if @min_max %>' data-toggle="modal" data-target="#price">
     Price
   </button>
+  <%= form_tag celestials_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    id: "search-bar",
+    class: "form-control",
+    placeholder: "Find your dream celestial..."
+  %>
+<% end %>
 </div>
 
 
