@@ -5,6 +5,7 @@ class Interest < ApplicationRecord
   belongs_to :celestial
   belongs_to :user
   has_many :messages
+  has_one :conversation
 
   validates :status, presence: true, inclusion: { in: STATUSES }
 

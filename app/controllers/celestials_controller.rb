@@ -17,9 +17,15 @@ class CelestialsController < ApplicationController
   end
 
   def show
-    @interest = current_user.interests.new
-    @interest.celestial = @celestial
-    @message = @interest.messages.new
+    unless @celestial.interests.any? { |interest| interest.user == current_user }
+      @interest = current_user.interests.new
+      @interest.celestial = @celestial
+      # authorize @interest
+      @conversation = Conversation.new
+      @conversation.interest = @interest
+      @conversation.sender = current_user
+      @conversation.recipient = @celestial.user
+    end
   end
 
   def new

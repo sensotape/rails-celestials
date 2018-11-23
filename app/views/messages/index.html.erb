@@ -1,5 +1,14 @@
-<% @all_sent_messages.each do |interest_messages| %>
-  <% interest_messages.each do |message| %>
-    <p>You to <%= message.interest.celestial.user.full_name %>: <%= message.body %> | <%= message.interest.celestial.name %></p>
+<div class="sent">
+  <% @all_sent_messages.each do |interest_messages| %>
+    <% interest_messages.each do |message| %>
+      <p>You to <%= message.interest.celestial.user.full_name %>: <%= message.body %> | <%= message.interest.celestial.name %></p>
+    <% end %>
   <% end %>
-<% end %>
+</div>
+<div class="recieved">
+  <% @all_recieved_messages.each do |interest_messages| %>
+    <% interest_messages.each do |message| %>
+      <p><%= message.interest.user.full_name %> to you: <%= message.body %> | <%= message.interest.celestial.name %></p>
+    <% end %>
+  <% end %>
+</div>
