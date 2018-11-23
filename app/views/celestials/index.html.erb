@@ -2,7 +2,13 @@
 <div class="container">
 
 
-
+<%= form_tag celestials_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a celestial object"
+  %>
+<% end %>
   <!-- FILTERS -->
   <%= render 'shared/filters' %>
 
