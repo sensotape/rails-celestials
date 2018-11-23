@@ -77,7 +77,7 @@ body.save!
 
 body = Celestial.new(
   name: 'S5 0014+81',
-  price: 0.99,
+  price: 38,
   category: 'black hole',
   description:'A super-massive Black Hole. Cue Muse song.',
   location: 'Cepheus Constelation',
@@ -110,7 +110,7 @@ body.save!
 
 body = Celestial.new(
   name: '243 Ida',
-  price: 0.99,
+  price: 5,
   category: 'asteroid',
   description:'One of the biggest asteroids in our solar system, too bad it is only made of rock and worth nothing.',
   location: 'Asteroid Belt',

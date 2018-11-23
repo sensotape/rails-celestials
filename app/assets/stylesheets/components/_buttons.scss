@@ -1,5 +1,5 @@
 .button-main {
-  margin: 20px 25px !important;
+  margin: 20px 25px;
   width: auto;
   border-radius: 4px;
   border: solid $gold 1px;
@@ -8,6 +8,8 @@
   color: $gold!important;
   background: transparent;
   transition: all ease 0.3s;
+  letter-spacing: 0.1em;
+  font-weight: bold;
 
   &.active {
     background: $gold;
@@ -21,8 +23,4 @@
     border: solid $gold 1px;
     opacity: 0.85;
   }
-}
-
-.button-delete {
-
 }

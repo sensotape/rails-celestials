@@ -6,6 +6,10 @@
   margin: 20px;
 }
 
+.index-margin-bottom {
+  margin-bottom: 40px;
+}
+
 .secondary-padding {
   padding: 10px;
 }
@@ -32,9 +36,19 @@
   align-items: center;
 }
 
+.flexbox-space-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .flexbox-vertical {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.full-height {
+  min-height: calc(100vh - 140px);
 }

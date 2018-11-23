@@ -1,0 +1,46 @@
+.page-container {
+  width: 100%;
+  height: calc(100vh - 70px);
+  color: white;
+}
+
+.photo-side {
+  width: 40vw;
+  height: 100%;
+  img {
+    width: 40vw;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.details-side {
+  width: 60vw;
+  height: 100%;
+}
+
+.content-box {
+  width: 80%;
+  background: white;
+  color: black;
+  padding: 30px 50px;
+  border-radius: 4px;
+  box-shadow: 1px 1px 1px 0 #555555;
+}
+
+.show-features {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  margin: 0;
+}
+
+.celestial-desciption .content {
+  opacity: 0.8;
+  padding-left: 20px;
+  margin: 15px auto;
+}
+
+.interest-modal {
+  color: black;
+}
