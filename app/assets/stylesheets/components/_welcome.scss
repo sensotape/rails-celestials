@@ -1,15 +1,12 @@
 #welcome {
-  display: inline;
-  color: $gold;
-  position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  color: white;
+  position: relative 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
-    margin: auto;
 }
 
-.round-avatar {
+.avatar-circle {
   border-radius: 50%;
 }

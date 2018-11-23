@@ -1,45 +1,52 @@
-<div class='container'>
-  <div class="white" id="welcome">
-    <h1>Welcome, <%= current_user.first_name %>!</h1>
-      <div class="round-avatar"><%= cl_image_tag current_user.avatar,
-      transformation: [{ height: 200, width: 200, crop: :thumb, gravity: :face}] %>
-      </div>
+<div class="container" id="welcome">
+  <div><h1>Welcome, <%= current_user.first_name %>!</div>
+  <div class="avatar-circle"><%= cl_image_tag current_user.avatar,
+      transformation: [{ height: 200, width: 200, crop: :thumb, gravity: :face}] %></h1></div>
+</div>
+
+<div class="tab-container">
+  <div class="tab">
+    <button class="tablinks" onclick="openPage(event, 'Profile')"><h4><i class="fas fa-user-astronaut"></i>My Profile</h4></button>
+    <button class="tablinks" onclick="openPage(event, 'Interests')"><h4><i class="fas fa-space-shuttle"></i>My Interests</h4></button>
+    <button class="tablinks" onclick="openPage(event, 'Celestials')"><h4><i class="fas fa-sun"></i>My Celestials</h4></button>
   </div>
 
-<div class="tab">
-  <button class="tablinks" onclick="openPage(event, 'Profile')"><i class="fas fa-user-astronaut"></i>  My Profile</button>
-  <button class="tablinks" onclick="openPage(event, 'Interests')"><i class="fas fa-space-shuttle"></i> My Interests <%= "(4 Approved, 2 Pending)" %></button>
-  <button class="tablinks" onclick="openPage(event, 'Celestials')"><i class="fas fa-sun"></i> My Celestials <%= "(5 People Interested)" %></button>
-</div>
+  <div id="Profile" class="tabcontent">
+    <div class="tab-body">
+      <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+      <h3><%= current_user.bio %></h3>
+      <button class="btn btn-primary"><%= link_to "Edit My Profile", edit_user_path(current_user) %></button>
+      <button class="btn btn-primary"><%= link_to "Delete My Profile", user_registration_path(current_user), method: :delete, data: { confirm: "Are you sure about this? The celestial gods will be angry!"} %></button>
+    </div>
+  </div>
 
-<div id="Profile" class="tabcontent">
-  <h3>My Profile</h3>
-  <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
-  <h2>About Me</h2>
-  <h3><%= current_user.bio %></h3>
-  <button class="btn btn-primary"><%= link_to "Edit My Profile", edit_user_path(current_user) %></button>
-  <button class="btn btn-primary"><%= link_to "Delete My Profile", user_registration_path(current_user), method: :delete, data: { confirm: "Are you sure about this? The celestial gods will be angry!"} %></button>
-</div>
+  <div id="Interests" class="tabcontent">
+    <div class="tab-body">
+      <div class="tab-card">
+        <% 'current_user.celestials.interests.each do |interest|' %>
+        <%= 'interest.name' %>
+        <div class="btn btn-primary">See Details</div>
+      </div>
+    </div>
+  </div>
 
-<div id="Interests" class="tabcontent">
-  <h3>My Interests</h3>
-  <p>Crazy Comet (Great Deal!)</p>
-  <p>Your Local Nebula - Epic Views</p>
-  <div class="btn btn-primary">See Details</div>
-</div>
-
-<div id="Celestials" class="tabcontent">
-  <h3>My Celestials</h3>
-  <% current_user.celestials.each do |celestial| %>
-    <p><strong><%= celestial.name %></strong> (category: <%= celestial.category %>)</p>
-    <p>€<%= celestial.price %></p>
-     <button class="btn btn-primary"><%= link_to "Delete Celestial", celestial_path(celestial), method: :delete, data: { confirm: "Are you sure?"} %></button>
-  <% end %>
-  <div class="btn btn-primary"><%= link_to "Add a Celestial", new_celestial_path(current_user) %></div>
-</div>
+  <div id="Celestials" class="tabcontent">
+    <div class="tab-body">
+      <div class="tab-card">
+        <% current_user.celestials.each do |celestial| %>
+          <p><strong><%= celestial.name %></strong> (category: <%= celestial.category %>)</p>
+          <p>€<%= celestial.price %></p>
+           <button class="btn btn-primary"><%= link_to "Delete Celestial", celestial_path(celestial), method: :delete, data: { confirm: "Are you sure?"} %></button>
+        <% end %>
+      </div>
+      <div class="btn btn-primary"><%= link_to "Add a Celestial", new_celestial_path(current_user) %></div>
+    </div>
+  </div>
 
 </div>
 <script>
+
+
 
 function openPage(evt, headingName) {
 
@@ -63,6 +70,6 @@ function openPage(evt, headingName) {
 }
 
 
-document.getElementById("defaultOpen").click();
+openPage(event,'Profile');
 </script>
 

@@ -1,9 +1,14 @@
 * {box-sizing: border-box}
 
 /* Style the tab */
+
+i {
+  font-size: 20px;
+}
 .tab {
     float: left;
     border: 1px solid $gold;
+    border-radius: 3px;
     background-color: black;
     width: 30%;
     height: 300px;
@@ -26,15 +31,18 @@
 /* Change background color of buttons on hover */
 .tab button:hover {
     transition: all 0.5s ease;
-    background-color: white;
-    color: black;
+    background-color: black;
+    transform: scale(1.03, 1.03);
+    color: $gold;
+    border: 1px solid $gold;
+    border-radius: 3px;
 }
 
 /* Create an active/current "tab button" class */
 .tab button.active {
     transition: all 0.3s ease;
-    background-color: $gold;
-    color: black;
+    background-color: black;
+    box-shadow:  0 5px 5px $gold;
 }
 
 /* Style the tab content */
@@ -46,10 +54,32 @@
     border-radius: 3px;
     width: 70%;
     border-left: none;
-    height: 300px;
+    height: 500px;
     color: white;
 }
 
-.fas {
+i {
   font-size: 20px;
+  margin: 5px;
+}
+
+.tablinks {
+  border-bottom: 1px solid $gold;
+  border-top: 1px solid $gold;
+  border-left: 1px solid $gold;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.tab-container {
+  margin: 40px;
+
+}
+
+.tab-body {
+  margin: 50px;
+}
+
+.tab-card {
+  margin: 15px;
 }
