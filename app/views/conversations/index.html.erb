@@ -1,21 +1,23 @@
-<% @conversations.each do |conversation| %>
-  <div class="message">
-    <%= cl_image_tag conversation.interest.user.avatar,
-       transformation: [{ height: 70, width: 70, crop: :thumb, gravity: :face}], style: "border-radius:50%;"%>
+<div class="full-height">
+  <% @conversations.each do |conversation| %>
+    <div class="message">
+      <%= cl_image_tag conversation.interest.user.avatar,
+         transformation: [{ height: 70, width: 70, crop: :thumb, gravity: :face}], style: "border-radius:50%;"%>
 
-    <div class="message-name">
-      <h3><%= conversation.interest.user.full_name %></h3>
-      <p><%= link_to conversation.interest.celestial.name, celestial_path(conversation.interest.celestial.id) %></p>
+      <div class="message-name">
+        <h3><%= conversation.interest.user.full_name %></h3>
+        <p><%= link_to conversation.interest.celestial.name, celestial_path(conversation.interest.celestial.id) %></p>
+      </div>
+      <div class="message-body">
+        <p>
+          <%= conversation.greeting %>
+          <div id="date"><%= conversation.created_at %></div>
+        </p>
+      </div>
+      <div class="message-status">
+        <p class="status pending"><%= conversation.interest.status %></p>
+        <p class="price"><%=  "$ #{conversation.interest.celestial.price}"%></p>
+      </div>
     </div>
-    <div class="message-body">
-      <p>
-        <%= conversation.greeting %>
-        <div id="date"><%= conversation.created_at %></div>
-      </p>
-    </div>
-    <div class="message-status">
-      <p class="status pending"><%= conversation.interest.status %></p>
-      <p class="price"><%=  "$ #{conversation.interest.celestial.price}"%></p>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
