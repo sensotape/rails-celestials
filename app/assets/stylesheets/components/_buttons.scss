@@ -8,6 +8,8 @@
   color: $gold;
   background: transparent;
   transition: all ease 0.3s;
+  letter-spacing: 0.1em;
+  font-weight: bold;
 
   &.active {
     background: $gold;
