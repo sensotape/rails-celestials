@@ -11,4 +11,5 @@ class Celestial < ApplicationRecord
   validates :price, presence: true, numericality: true
   validates :category, presence: true, inclusion: { in: CATEGORIES }
   validates :location, presence: true, length: { in: 8..120 }
+  validates :sold, default: false, inclusion: { in: [true, false] }
 end

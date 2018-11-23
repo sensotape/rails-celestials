@@ -7,4 +7,6 @@ class Interest < ApplicationRecord
   has_many :messages
 
   validates :status, presence: true, inclusion: { in: STATUSES }
+
+  # scope :pending, -> { where(status: 'pending') }
 end

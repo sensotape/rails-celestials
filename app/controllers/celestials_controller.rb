@@ -17,7 +17,9 @@ class CelestialsController < ApplicationController
   end
 
   def show
-    @message = Message.new
+    @interest = current_user.interests.new
+    @interest.celestial = @celestial
+    @message = @interest.messages.new
   end
 
   def new
@@ -29,7 +31,7 @@ class CelestialsController < ApplicationController
     @celestial = current_user.celestials.new(permitted_attributes(Celestial))
     authorize @celestial
     if @celestial.save
-    redirect_to celestials_path
+      redirect_to celestials_path
     else
       render 'new'
     end
