@@ -1,5 +1,23 @@
 <% @all_sent_messages.each do |interest_messages| %>
   <% interest_messages.each do |message| %>
-    <p>You to <%= message.interest.celestial.user.full_name %>: <%= message.body %> | <%= message.interest.celestial.name %></p>
+  <div class="message">
+  <%= cl_image_tag message.interest.celestial.user.avatar,
+     transformation: [{ height: 70, width: 70, crop: :thumb, gravity: :face}], style: "border-radius:50%;"%>
+
+  <div class="message-name">
+    <h3><%= message.interest.celestial.user.full_name %></h3>
+    <p><%= link_to message.interest.celestial.name, celestial_path(message.interest.celestial.id) %></p>
+  </div>
+  <div class="message-body">
+    <p>
+      <%= message.body %>
+      <div id="date"><%= message.created_at %></div>
+    </p>
+  </div>
+  <div class="message-status">
+    <p class="status pending"><%= message.interest.status %></p>
+    <p class="price"><%=  "$ #{message.interest.celestial.price}"%></p>
+  </div>
+</div>
   <% end %>
 <% end %>
