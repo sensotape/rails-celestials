@@ -1,5 +1,7 @@
 puts 'Dropping db...'
 
+Message.destroy_all
+Interest.destroy_all
 Celestial.destroy_all
 User.destroy_all
 
@@ -10,7 +12,8 @@ andrew = User.create!(
   first_name: 'Andrew',
   last_name: 'Erlanger',
   password: '123456',
-  password_confirmation: '123456'
+  password_confirmation: '123456',
+  bio: 'Black holes, white dwarves, red giants - U ready to taste the rainbow?'
 )
 marcel = User.create!(
   email: 'marcelsf23br@gmail.com',
@@ -18,7 +21,8 @@ marcel = User.create!(
   first_name: 'Marcel',
   last_name: 'Fonseca',
   password: '123456',
-  password_confirmation: '123456'
+  password_confirmation: '123456',
+  bio: 'Schifty-on-Schwifty, ISO same. Your nebula or mine?'
 )
 maylee = User.create!(
   email: 'mayleesia@gmail.com',
@@ -26,7 +30,9 @@ maylee = User.create!(
   first_name: 'May-Lee',
   last_name: 'Sia',
   password: '123456',
-  password_confirmation: '123456'
+  password_confirmation: '123456',
+  bio: 'I\'m in the market for some sexy celestial bodies. Slightly used,
+  cheap - the hotter the better. Sorry, no gas giants!'
 )
 aigerim = User.create!(
   email: 'sensotape@gmail.com',
@@ -34,7 +40,8 @@ aigerim = User.create!(
   first_name: 'Aigerim',
   last_name: 'Kalysheva',
   password: '123456',
-  password_confirmation: '123456'
+  password_confirmation: '123456',
+  bio: 'Let\'s shoot for the moon and end up in the stars!'
 )
 
 puts 'Creating celestials...'
@@ -77,7 +84,7 @@ body.save!
 
 body = Celestial.new(
   name: 'S5 0014+81',
-  price: 0.99,
+  price: 38,
   category: 'black hole',
   description:'A super-massive Black Hole. Cue Muse song.',
   location: 'Cepheus Constelation',
@@ -110,7 +117,7 @@ body.save!
 
 body = Celestial.new(
   name: '243 Ida',
-  price: 0.99,
+  price: 5,
   category: 'asteroid',
   description:'One of the biggest asteroids in our solar system, too bad it is only made of rock and worth nothing.',
   location: 'Asteroid Belt',
