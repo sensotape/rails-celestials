@@ -1,0 +1,32 @@
+<div class="interest-modal">
+  <button type="button" class="button-main" data-toggle="modal" data-target="#sellerModal" style="margin: 0">
+    Seller Profile
+  </button>
+
+
+  <div class="modal fade" id="sellerModal" tabindex="-1" role="dialog" aria-labelledby="sellerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="interestModalLabel"><strong>Meet <%= celestial.user.first_name %></strong></h2>
+        </div>
+        <div class="modal-body text-left">
+
+          <div class="flexbox-space-around">
+            <div class="seller-modal-object-left">
+              <%= cl_image_tag celestial.user.avatar, class: "schwift-avatar" %>
+            </div>
+            <div class="seller-modal-object-right">
+              <%= celestial.user.bio %>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="button-main" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
