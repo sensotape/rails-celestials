@@ -12,7 +12,8 @@ andrew = User.create!(
   first_name: 'Andrew',
   last_name: 'Erlanger',
   password: '123456',
-  password_confirmation: '123456'
+  password_confirmation: '123456',
+  bio: 'Black holes, white dwarves, red giants - U ready to taste the rainbow?'
 )
 marcel = User.create!(
   email: 'marcelsf23br@gmail.com',
@@ -20,7 +21,8 @@ marcel = User.create!(
   first_name: 'Marcel',
   last_name: 'Fonseca',
   password: '123456',
-  password_confirmation: '123456'
+  password_confirmation: '123456',
+  bio: 'Schifty-on-Schwifty, ISO same. Your nebula or mine?'
 )
 maylee = User.create!(
   email: 'mayleesia@gmail.com',
@@ -28,7 +30,9 @@ maylee = User.create!(
   first_name: 'May-Lee',
   last_name: 'Sia',
   password: '123456',
-  password_confirmation: '123456'
+  password_confirmation: '123456',
+  bio: 'I\'m in the market for some sexy celestial bodies. Slightly used,
+  cheap - the hotter the better. Sorry, no gas giants!'
 )
 aigerim = User.create!(
   email: 'sensotape@gmail.com',
@@ -36,7 +40,8 @@ aigerim = User.create!(
   first_name: 'Aigerim',
   last_name: 'Kalysheva',
   password: '123456',
-  password_confirmation: '123456'
+  password_confirmation: '123456',
+  bio: 'Let\'s shoot for the moon and end up in the stars!'
 )
 
 puts 'Creating celestials...'
