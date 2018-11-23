@@ -1,5 +1,7 @@
 puts 'Dropping db...'
 
+Message.destroy_all
+Interest.destroy_all
 Celestial.destroy_all
 User.destroy_all
 
