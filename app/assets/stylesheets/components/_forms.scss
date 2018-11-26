@@ -1,3 +1,25 @@
 .form-container {
-  padding-top: 70px;
+  margin: 20px auto;
+  max-width: 400px;
+  display: block;
+  min-height: calc(100vh - 185px);
+}
+
+.form-inputs {
+  form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+}
+
+.form-actions {
+  a {
+    margin: 5px auto;
+  }
+}
+
+.form-check-label {
+  margin-left: 5px;
 }

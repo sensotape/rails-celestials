@@ -1,0 +1,12 @@
+.btn-secondary {
+  border-color: $gold;
+  color: $gold;
+  &:hover {
+    color: $gold;
+    text-decoration: none;
+  }
+}
+
+.text-link {
+  margin-top: 10px;
+}
