@@ -1,15 +1,16 @@
 class CelestialsController < ApplicationController
   before_action :set_celestial, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     if params[:query].present?
       sql_query = "name ILIKE :query OR category ILIKE :query"
-      @celestial = Celestial.new
+      # @celestial = Celestial.new
       save_filters
-      @celestials = Celestial.where(sql_query, query: "%#{params[:query]}%")
+      @celestials = policy_scope(Celestial).where(sql_query, query: "%#{params[:query]}%")
       calculate_min_max_ave if @celestials
     else
-      @celestial = Celestial.new
+      # @celestial = Celestial.new
       save_filters
       retreive_celestials
       calculate_min_max_ave if @celestials
